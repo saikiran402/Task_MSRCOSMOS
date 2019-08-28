@@ -1,0 +1,65 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style type="text/css">
+  body{
+    background-color: silver;
+  }
+</style>
+<a href="/logout"><button class="btn btn-sm btn-info" style="float: right;margin: 10px;">Logout</button></a>
+<div class="container" style="padding-top: 20px;">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Delete</th>
+           <th scope="col">Update</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%var count=0;list.forEach(list =>{%>
+    <tr>
+      <th scope="row">1</th>
+      <td><%=list.fname;%></td>
+      <td><%=list.username;%></td>
+      <td><%=list.mobile;%></td>
+      <td><form action="/<%=list.id%>/delete" method="POST">
+                  <input type="submit" name="" value="delete" class="btn btn-sm btn-danger">
+      </form>
+<td>
+    <form action="/dashboard/<%=list.id%>/update" method="POST">
+                  <input type="submit" name="" value="Update" class="btn btn-sm btn-warning">
+      </form>
+    </td>
+    </tr>
+    <%});%>
+  </tbody>
+</table>
+</div>
+<div class="row">
+<div class="container md-3">
+      <form class="form-signin" action="/register"  method="POST" >
+  <img class="mb-2" src="https://www.msrcosmos.com/wp-content/themes/msrcosmos_050219/assets/images/msrcosmos-logo.svg" alt="" width="172" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Update Values</h1>
+
+  <input type="text" name="fname" class="form-control" placeholder="First Name" value="" required autofocus>
+
+  <input type="text" name="mname" class="form-control" placeholder="Middle Name" required>
+
+  <input type="text" name="lname" class="form-control" placeholder="Last Name" required autofocus>
+
+      <input type="text" name="email" class="form-control" placeholder="Last Name" value="" readonly required autofocus >
+
+
+  <input type="text" name="phone" class="form-control" placeholder="976565778"  required autofocus>
+
+
+
+  <input type="submit" class="btn btn-lg btn-primary btn-block" value="Update">
+
+</form>
+
+</div>
+</div>
