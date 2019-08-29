@@ -37,7 +37,6 @@ router.post("/login", passport.authenticate("user",
         successRedirect: "/dashboard",
         failureRedirect: "/",
         failureFlash: true,
-        successFlash: 'Welcome to YelpCamp!'
     }), function(req, res){
    if (!user) {
             req.flash("error", "Invalid username or password");
